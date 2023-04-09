@@ -9,9 +9,6 @@ from crc64iso.crc64iso import crc64
 
 
 def __hamming_common(src: List[List[int]], s_num: int, encode=True) -> int:
-    """
-    Here's the real magic =)
-    """
     s_range = range(s_num)
     errors = 0
 
@@ -140,7 +137,7 @@ def noizer(msg: str, mode: int) -> str:
 
 def noizer4(msg: str, mode: int) -> str:
     """
-    Generates 4 errors in each element of a Hamming encoded message
+    Generates up to 4 errors in each element of a Hamming encoded message
     """
     seq = list(map(int, msg))
     s_num = ceil(log2(log2(mode + 1) + mode + 1))  # количество служебных битов
